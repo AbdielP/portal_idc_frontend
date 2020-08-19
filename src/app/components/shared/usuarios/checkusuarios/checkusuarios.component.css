@@ -1,0 +1,132 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+    /* color: #ffffff; */
+
+    width:100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.title-container{
+    display: flex;
+    width: 100%;
+    margin-top: 1%;
+    padding: .5%;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #ea5d10;
+    ;
+}.title-container p{
+    margin: 0;
+}
+
+.pendientes-main-container{
+    width: 100%;
+    /* height: 100%; */
+    padding: 1.5%;
+    color: #707173
+    /* background-color: gray; */
+}
+
+.pendientes-container{
+    width: 100%;
+    /* min-height: 10%; */
+    height: auto;
+    border: 1px solid #D8D8D8;
+    box-shadow: 2px 2px 4px #888888;
+}
+
+.container-nada-pendiente{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1.5%;
+    font-size: 1.2rem;
+    /* background-color: green; */
+}.container-nada-pendiente p{
+    margin: 0;
+}
+
+.contenedor-pendientes{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* padding: .8%; */
+    /* background-color: green; */
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.contenedor-pendientes-nombre,
+.contenedor-pendientes-cedula,
+.contenedor-pendientes-empresa,
+.contenedor-pendientes-fecha,
+.contenedor-pendientes-habilitar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 17%;
+    height: 100%;
+    padding: .8%;
+    /* background-color: greenyellow; */
+}.contenedor-pendientes-nombre .logo-nombre{
+    color:#5290e9;
+    font-size: large;
+    margin-left: 15px;
+}
+
+.contenedor-pendientes-habilitar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    color: #ffffff;
+    border-left: 1px solid #D8D8D8;
+    /* background-color: #71b37c; */
+    border-radius: 5px 0 5px;
+    justify-content: space-evenly;
+}.contenedor-pendientes-habilitar form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contenedor-pendientes-nombre{
+    width: 25%;
+}
+
+.contenedor-pendientes-cedula{
+    width: 27%;
+    justify-content: space-between;
+    /* background-color: red; */
+    /* border-left: 1px solid #888888; */
+    /* border-right: 1px solid #888888; */
+}.contenedor-pendientes-nombre h6,
+.contenedor-pendientes-cedula h6,
+.contenedor-pendientes-empresa h6,
+.contenedor-pendientes-fecha h6,
+.contenedor-pendientes-habilitar h6{
+    margin: 0;
+    font-size: .8rem;  
+}.contenedor-pendientes-fecha h6{
+    color: #ea5d10;
+    text-decoration: underline;
+}
+
+.volver-btn{
+    color: #8970a8;
+    padding: .3%;
+    font-size: .9rem;
+    background: none;
+    cursor: pointer;
+    border: none;
+
+}.volver-btn:hover{
+    /* border-bottom: 1px solid #8970a8; */
+    color: #8970a8ab;
+}

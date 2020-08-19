@@ -1,0 +1,37 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 3%;
+    color: #707173;
+    /* background-color: red; */
+
+    width:85%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container-lista{
+    width: 100%;
+}
+
+/* TABLA DETALLES */
+.tabla-detalles {
+    
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.tabla-detalles-th, .tabla-detalles-td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+  
+.tabla-detalles-tr:nth-child(even){background-color: #f2f2f2} 
+  
+.tabla-detalles-th {
+    background-color: #8970a8;
+    color: white;
+}

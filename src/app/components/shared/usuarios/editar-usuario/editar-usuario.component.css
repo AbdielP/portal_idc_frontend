@@ -1,0 +1,74 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 100%;
+    padding: 1%;
+    /* background-color: peru; */
+}
+
+.password-error-container{
+    width: 100%;
+    padding-left: 2%;
+    margin-bottom: 1%;
+    color: red;
+    /* background-color: red; */
+}
+
+.container-inputs{
+    width: 50%;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: orange;
+    color: white
+}
+
+.container-checkbox{
+    width: 30%;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F2F2F2;
+    border: 1px solid orangered;
+}.container-checkbox label{
+    margin-right: 5px;
+}.container-checkbox button{
+    width: 100%;
+    padding: 3%;
+    border: 1px solid orange;
+    box-shadow: 2px 2px 4px #888888;
+}.container-checkbox .btn-activar{
+    color: green;
+}.container-checkbox .btn-desactivar{
+    color: orange;
+}.container-checkbox .btn-bloquear{
+    color: orangered;
+}.container-checkbox .btn-desbloquear{
+    color: blue;
+}.container-checkbox button:hover{
+    box-shadow: none;
+}
+
+.btn-cambiar-pass{
+    margin-left: 2%;
+    border: none;
+    padding: .9%;
+    /* background-color: orangered; */
+    color: orangered;
+    border: 1px solid orangered;
+    box-shadow: 2px 2px 4px #888888;
+}
+
+.btn-cambiar-pass:disabled{
+    background-color: #F2F2F2;
+    color: #E6E6E6;
+    box-shadow: none;
+    border: none;
+}
+
+.btn-cambiar-pass:hover{
+    box-shadow: none;
+}

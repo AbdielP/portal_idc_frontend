@@ -1,0 +1,31 @@
+<div class="main-container">
+    <!-- contenedor del form cambiar password -->
+    <div class="container">
+        <div class="container-cambiar-password">
+            <img src="assets/img/lla_logo.png" alt="Keys" class="mb-4" width="92">
+            <h2>Bienvenido al portal de clientes IDC</h2>
+            <h4>Porfavor, introduzca nueva contraseña</h4>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="error-container">
+                    <div *ngIf="form.controls['password'].errors?.required" class="form-control-feedback">
+                        El campo contraseña nueva es requerido.
+                    </div>
+                    <div *ngIf="form.controls['password'].errors?.minlength" class="form-control-feedback">
+                        La contraseña debe contener al menos 8 caracteres.
+                    </div>
+                </div>
+                <input type="password" placeholder="Contraseña nueva" formControlName="password">
+                
+                <div class="error-container">
+                    <div *ngIf="form.controls['re_password'].errors?.required" class="form-control-feedback">
+                        El campo repetir contraseña nueva es requerido.
+                    </div>
+                </div>
+                <input type="password" placeholder="Repetir contraseña nueva" formControlName="re_password">
+
+                <button [disabled]="!form.valid" type="submit">Enviar</button>
+                <!-- <input type="submit" value="Cambiar password"> -->
+            </form>
+        </div>
+    </div>
+</div>

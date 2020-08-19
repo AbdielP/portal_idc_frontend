@@ -1,0 +1,38 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+
+    width:85%;
+    height: 100%;
+    padding: 1% 1%;
+    color: #585858;
+    z-index: -1;
+    /* background-color: hotpink; */
+}
+
+.container-header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid #585858;
+    /* background-color: indigo; */
+}.container-header h3{
+    margin-left: 1%;
+}
+
+.container-select-entidad,
+.container-formulario-matriz{
+    margin-top: 1%;
+    width: 100%;
+    /* background-color: red; */
+}
+/* 
+.container-formulario-matriz{
+    display: flex;
+    flex-direction: column;
+    background-color: rebeccapurple;
+} */

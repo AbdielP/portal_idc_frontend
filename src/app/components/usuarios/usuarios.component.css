@@ -1,0 +1,29 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 3%;
+    color: #707173;
+    /* background-color: red; */
+
+    width:85%;
+    height: 100%;
+    z-index: -1;
+}
+
+.card-navbar{
+    margin-top: 5%;
+    width: 100%;
+    padding: .7%;
+}
+
+.main-card-leyenda-texto{
+    width: 95%;
+    /* background-color: red; */
+}
+
+.list-container{
+    width: 100%;
+    padding: 2% 5%;
+}

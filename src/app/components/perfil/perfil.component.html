@@ -1,0 +1,151 @@
+<div class="main-container">
+    <div class="container-profile">
+        <div class="container-profile-title">
+            <i class="profile-icono fas fa-user-circle"></i>
+            <h5><b>Perfíl de usuario.</b></h5>
+        </div>
+        <div class="main-container-profile">
+            <!-- LADO IZQUIERDO -->
+            <div class="main-container-profile-izq">
+                <!-- <div class="container-profile-izq-div-foto">
+                    <div class="container-foto"></div>
+                </div> -->
+                
+                <div class="container-profile-izq-div-info">
+                    <!-- HR 1 -->
+                    <div class="div-izq-div-info-titulo">
+                        <small>Datos personales</small>
+                        <hr class="hr-info-titulo">
+                    </div>
+                    <div class="div-izq-div-info-usuario">
+                        <label for="info-usuario">Usuario: </label>
+                        <b id="info-usuario">{{usuarioInfo.username}}</b>
+                    </div>
+                    <div class="div-izq-div-info-nombre">
+                        <label for="info-nombre">Nombre:</label>
+                        <h6 id="info-nombre">{{usuarioInfo.nombre}}</h6>
+                    </div>
+
+                    <div class="div-izq-div-info-apellido">
+                        <label for="info-nombre">Apellido:</label>
+                        <h6 id="info-nombre">{{usuarioInfo.apellido}}</h6>
+                    </div>
+                    <!-- HR 2  -->
+                    <div class="div-izq-div-info-label-correo">
+                        <small>Correo registrado</small>
+                        <hr class="hr-info-correo">
+                    </div>
+                    <div class="div-izq-div-info-correo">
+                        <h5>{{usuarioInfo.correo}}</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- LADO DERECHO -->
+            <div class="main-container-profile-der">
+                <div class="main-container-password">
+                    <!-- <div class="main-container-password-titulo">
+                        <p><i class="fas fa-key"></i> Cambiar contraseña de usuario</p>
+                        <button type="submit">Enviar</button>
+                    </div> -->
+                    <div class="main-container-password-form-container">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="main-container-password-titulo">
+                                <p><i class="fas fa-key"></i> Cambiar contraseña de usuario</p>
+                                <button [disabled]="!form.valid" type="submit">Enviar <i class="fas fa-hand-pointer"></i></button>
+                            </div>
+                        <!-- FORMULARIO -->
+                            
+                            <div class="error-container">
+                                <label for="actual_password"><b>Contraseña actual:</b></label>
+                                <div *ngIf="form.controls['actual_password'].errors?.required" class="form-control-feedback">
+                                    El campo contraseña actual es requerido.
+                                </div>
+                            </div>
+                            <input type="password" placeholder="Contraseña actual" formControlName="actual_password">
+                           
+                            <div class="error-container">
+                                <label for="password"><b>Nueva contraseña:</b></label>
+                                <div *ngIf="form.controls['password'].errors?.required" class="form-control-feedback">
+                                    El campo nueva contraseña es requerido.
+                                </div>
+                                <div *ngIf="form.controls['password'].errors?.minlength" class="form-control-feedback">
+                                    La contraseña debe contener al menos 8 caracteres.
+                                </div>
+                            </div>
+                            <input type="password" placeholder="Nueva contraseña" formControlName="password">
+            
+                            <div class="error-container">
+                                <label for="re_password"><b>Repetir nueva contraseña:</b></label>
+                                <div *ngIf="form.controls['re_password'].errors?.required" class="form-control-feedback">
+                                    El campo repetir contraseña nueva es requerido.
+                                </div>
+                            </div>
+                            <input type="password" placeholder="Repetir nueva contraseña" formControlName="re_password">
+                        </form>
+                    </div>
+                </div>
+                <hr class="hr-divisor">
+                <!-- INFOR DE LA EMPRESA -->
+                <!-- <div class="main-container-empresa">
+                    <div class="main-container-empresa-titulo">
+                        <p><i class="fas fa-city"></i> Datos del cliente <b>{{entidad}}</b></p>
+                    </div>
+                   
+                    <div class="div-izq-div-info-titulo">
+                        <small>Distinciones</small>
+                        <hr class="hr-info-titulo">
+                    </div>
+                    <div class="container-empresa-distinciones">
+                        
+                    </div>
+                    
+                    <div class="div-izq-div-info-titulo">
+                        <small>Datacenters contratados</small>
+                        <hr class="hr-info-titulo">
+                    </div>
+                    <div class="container-lista-idc">
+                        <ul>
+                            <li *ngFor="let idc of idcsEntidad">{{idc}}</li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- contenedor del form cambiar password -->
+    <!-- <div class="container">
+        <div class="container-cambiar-password">
+            <h4>Cambiar contraseña</h4>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="error-container">
+                    <div *ngIf="form.controls['actual_password'].errors?.required" class="form-control-feedback">
+                        El campo contraseña actual es requerido.
+                    </div>
+                </div>
+                <input type="password" placeholder="Contraseña actual" formControlName="actual_password">
+               
+                <div class="error-container">
+                    <div *ngIf="form.controls['password'].errors?.required" class="form-control-feedback">
+                        El campo nueva contraseña es requerido.
+                    </div>
+                    <div *ngIf="form.controls['password'].errors?.minlength" class="form-control-feedback">
+                        La contraseña debe contener al menos 8 caracteres.
+                    </div>
+                </div>
+                <input type="password" placeholder="Nueva contraseña" formControlName="password">
+
+                <div class="error-container">
+                    <div *ngIf="form.controls['re_password'].errors?.required" class="form-control-feedback">
+                        El campo repetir contraseña nueva es requerido.
+                    </div>
+                </div>
+                <input type="password" placeholder="Repetir nueva contraseña" formControlName="re_password">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div> -->
+</div>

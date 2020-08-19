@@ -1,0 +1,32 @@
+<body class="main-body">
+
+    <form ngNativeValidate (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="form-signin" action="/">
+      <img src="assets/img/lla_logo.png" alt="Keys" class="mb-4" width="92">
+      <h2 class="h3 mb-3 font-weight-normal">Iniciar sesión</h2>
+    
+        <div class="pb-1">
+            <span *ngIf="loginForm.submitted && loginForm.controls['username'].errors" 
+            class="alert alert-danger btn-block animated fadeIn p-1 m-1">
+              El usuario es requerido.
+            </span>
+  
+            <span *ngIf="loginForm.submitted && loginForm.controls['password'].errors" 
+            class="alert alert-danger btn-block animated fadeIn p-1 m-1">
+              La contraseña es requerida.
+            </span>
+        </div>
+    
+      <input type="text" id="username" name="username" class="form-control" placeholder="usuario"
+        ngModel required autofocus>
+      <input type="password" id="password" name="password" class="form-control" placeholder="contraseña" 
+        ngModel required>
+      <div mb-3>
+        <!-- <p><small>Acceso restringido.</small></p> -->
+        <p class="white-font"><small>Portal de administración IDC.</small></p>
+      </div>
+      <button class="btn btn-secondary btn-lg btn-block" type="submit">Iniciar sesión</button>
+      <hr class="hr-forgot-pass">
+      <!-- <a [routerLink]="['/resetpass']">¿Olvidó su contraseña?</a> -->
+      <p class="mt-2 mb-3 text-muted white-font">Data Center Cable & Wireless Panamá - {{year}} &copy;</p>
+    </form>
+  </body>

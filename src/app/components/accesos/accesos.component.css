@@ -1,0 +1,54 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    padding: 3%;
+    color: #707173;
+    /* background-color: red; */
+
+    width:85%;
+    height: 100%;
+    z-index: -1;
+}
+
+.card-navbar{
+    margin-top: 5%;
+    width: 100%;
+    padding: .7%;
+}
+
+.main-card-leyenda-texto{
+    width: 95%;
+    /* background-color: red; */
+}
+
+.list-container{
+    width: 100%;
+    padding: 2% 5%;
+}
+
+table{
+    font-size: .7rem;
+    color: #707173;
+
+    border-collapse: collapse;
+    width: 100%;
+} th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+} tr:hover {
+    cursor: pointer;
+    background-color:#f5f5f5;
+}
+
+.div-noaccesos-msg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1%;
+    
+    border-bottom: 1px solid #585858;
+}

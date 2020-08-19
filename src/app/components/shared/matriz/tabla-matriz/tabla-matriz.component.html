@@ -1,0 +1,62 @@
+<form [formGroup]="formTable">
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Nombre</th>
+                <th colspan="3">Solicitud de permiso</th>
+                <th rowspan="2">Manos remotas *</th>
+                <th colspan="3">Notificación de alertas</th>
+                <th class="cuadros-editar-matriz" rowspan="2">Editar Matriz</th>
+            </tr>
+            <tr>
+                <th>Solicitar</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+    
+                <th>Baja</th>
+                <th>Media</th>
+                <th>Alta</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let permiso of permisos">
+                <th>{{permiso.nombre}} {{permiso.apellido}}</th>
+                <td>
+                    <input *ngIf="permiso.solicitar_acceso" type="checkbox" formControlName="solicitar_acceso" name="solicitar_acceso" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.solicitar_acceso" type="checkbox" formControlName="solicitar_acceso" name="solicitar_acceso" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.actualizar_acceso" type="checkbox" formControlName="actualizar_acceso" name="actualizar_acceso" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.actualizar_acceso" type="checkbox" formControlName="actualizar_acceso" name="actualizar_acceso" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.eliminar_acceso" type="checkbox" formControlName="eliminar_acceso" name="eliminar_acceso" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.eliminar_acceso" type="checkbox" formControlName="eliminar_acceso" name="eliminar_acceso" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.manos_remotas" type="checkbox" formControlName="manos_remotas" name="manos_remotas" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.manos_remotas" type="checkbox" formControlName="manos_remotas" name="manos_remotas" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.alertas_baja" type="checkbox" formControlName="alertas_baja" name="alertas_baja" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.alertas_baja" type="checkbox" formControlName="alertas_baja" name="alertas_baja" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.alertas_media" type="checkbox" formControlName="alertas_media" name="alertas_media" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.alertas_media" type="checkbox" formControlName="alertas_media" name="alertas_media" (change)="onCheckChange($event)">
+                </td>
+                <td>
+                    <input *ngIf="permiso.alertas_alta" type="checkbox" formControlName="alertas_alta" name="alertas_alta" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.alertas_alta" type="checkbox" formControlName="alertas_alta" name="alertas_alta" (change)="onCheckChange($event)">
+                </td>
+                <td class="cuadros-editar-matriz">
+                    <input *ngIf="permiso.editar_matriz" type="checkbox" formControlName="editar_matriz" name="editar_matriz" checked (change)="onCheckChange($event)">
+                    <input *ngIf="!permiso.editar_matriz" type="checkbox" formControlName="editar_matriz" name="editar_matriz" (change)="onCheckChange($event)">
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,23 @@
+<div class="div-navbar-main">
+    <div class="div-navbar-logo">
+      <a class="navbar-brand" [routerLink]="[authService.menu[0].url]">
+        <img src="assets/img/lla_logo.png" width="50" class="d-inline-block align-top" alt="">
+      </a>
+    </div>
+    
+    <div class="div-navbar-contenido">
+  
+      <div *ngFor="let menu of authService.menu" class="div-navbar-contenido-contenidos">
+        <a class="link" routerLinkActive="active" [routerLink]="[menu.url]"><i class="{{menu.color}} {{menu.icon}}"></i> {{menu.titulo}}</a>
+      </div>
+  
+      <div class="div-navbar-contenido-contenidos">
+        <a class="link" [routerLink]="['/perfil']"><i class="fas fa-user-circle"></i> Mi cuenta</a>
+      </div>
+  
+      <div class="div-navbar-contenido-contenidos">
+        <a (click)="authService.logOut()" class="link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+      </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<div class="main-container">
+    <h2>Editar Matriz component</h2>
+    <div class="container-lista">
+
+        <table class="tabla-detalles">
+            <tr class="tabla-detalles-tr">
+              <th class="tabla-detalles-th">Nombre</th>
+              <th class="tabla-detalles-th">Cargo</th>
+              <th class="tabla-detalles-th">Teléfono</th>
+              <th class="tabla-detalles-th">Celular</th>
+              <th class="tabla-detalles-th">Email</th>
+              <th class="tabla-detalles-th">Solicitar Acceso</th>
+            </tr>
+            <tr *ngFor="let persona of personal" class="tabla-detalles-tr">
+              <td class="tabla-detalles-td">{{persona.nombre}}</td>
+              <td class="tabla-detalles-td">{{persona.cargo}}</td>
+              <td class="tabla-detalles-td">{{persona.telefono}}</td>
+              <td class="tabla-detalles-td">{{persona.celular}}</td>
+              <td class="tabla-detalles-td">{{persona.correo}}</td>
+              <td class="tabla-detalles-td"> <input type="checkbox" value="{{persona.solicitar_acceso}}"> </td>
+            </tr>
+            
+          </table>
+    </div>
+</div>

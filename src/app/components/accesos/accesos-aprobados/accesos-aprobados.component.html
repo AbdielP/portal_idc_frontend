@@ -1,0 +1,55 @@
+<div class="main-container">
+    <div class="container-header">
+        <h3>Detalles de accesos y QR Codes</h3>
+    </div>
+
+    <div class="container-select-entidad">
+        <div class="form-group col-md-6">
+            <label for="proyecto">Escoger compañia</label>
+            <select id="proyecto" class="form-control" (change)="getEntidad($event)">
+                <option value="" disabled>Escoger...</option>
+                <option *ngFor="let proyecto of proyectos" value="{{proyecto.nombre_empresa}}">{{proyecto.nombre_empresa}} - LOC{{proyecto.loc}} - {{proyecto.datacenter}}</option>
+            </select>
+        </div>
+
+        <!-- <div class="form-froup col-md-4">
+            <input class="input-search" id="input-search" name="filterPost" type="search" placeholder="Buscar por nombre o cédula" aria-label="Buscar por.."
+            [(ngModel)]="filterPost">
+        </div> -->
+    </div>
+
+    <div class="container-accesos">
+        <table>
+            <tr>
+              <th>Nombre</th>
+              <th>Cédula</th>
+              <th>Expiración</th>
+              <th>Empleado de</th>
+              <th>Acceso</th>
+              <th>Datacenter</th>
+              <th>Estado</th>
+              <th>Notas</th>
+              <th>Fecha de solicitud</th>
+              <th>Tipo de visitante</th>
+              <th>Motivo</th>
+              <th>Detalles</th>
+            </tr>
+            <tr *ngFor="let acceso of accesos ">
+              <td *ngIf="accesos != ''">{{acceso.nombre_visitante}}</td>
+              <td *ngIf="accesos != ''">{{acceso.cedula_visitante}}</td>
+              <td *ngIf="accesos != ''">{{acceso.fecha_expiracion | date:'mediumDate'}}</td>
+              <td *ngIf="accesos != ''">{{acceso.empleado_visitante}}</td>
+              <td *ngIf="accesos != ''">{{acceso.compania_visitante}}</td>
+              <td *ngIf="accesos != ''">{{acceso.viceprecidencia_ejecutiva}}</td>
+              <td *ngIf="accesos != ''">{{acceso.estado}}</td>
+              <td *ngIf="accesos != ''">{{acceso.notas}}</td>
+              <td *ngIf="accesos != ''">{{acceso.fecha_solicitud | date:'mediumDate'}}</td>
+              <td *ngIf="accesos != ''">{{acceso.tipo_visitante}}</td>
+              <td *ngIf="accesos != ''">{{acceso.motivo_solicitud}}</td>
+              <td *ngIf="accesos != ''"><a [routerLink]="['/detalles',acceso.idseguridad,acceso.cedula_visitante,acceso.compania_visitante]" class="card-link ml-2"><small><i class="fas fa-plus"></i></small></a></td>
+            </tr>
+            
+          </table>
+          <div class="div-noaccesos-msg" *ngIf="accesos < 1">- No hay acceso aprobados -</div>
+    </div>
+</div>

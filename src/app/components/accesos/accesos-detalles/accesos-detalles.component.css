@@ -1,0 +1,199 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+
+    width:85%;
+    height: 100%;
+    padding: 1% 1%;
+    color: #585858;
+    z-index: -1;
+    /* background-color: hotpink; */
+}
+
+.main-container-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    /* background-color: red; */
+}
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+
+    margin-top: 1%;
+    border-radius: 15px;
+    background-color: rgba(132, 132, 132, .2);
+}
+
+.body-container-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 45%;
+    background-color: #ffffff;
+}
+
+.body-container-qr{
+    display: flex;
+    background-image: url('../../../../assets/img/QR_base.PNG');
+    /* background-color: gray; */
+    margin-top: 2%;
+    width: 40%;
+    height: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* border: 1px solid green; */
+}
+
+.container-qr-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8970a8;
+    width: 55%;
+    height: 100%;
+    font-size: 1rem;
+    /* border: 1px solid red; */
+    /* background-color: goldenrod; */
+}.container-qr-info p{
+    margin: 0;
+    font-weight: bold;
+}
+
+.container-qr-img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10% 0;
+    width: 45%;
+    height: 100%;
+    /* border: 1px solid blue; */
+    /* background-color: indigo; */
+}.container-qr-img img{
+    margin-left: 3%;
+    width: 82%;
+}
+
+.container-details-titulo{
+    display: flex;
+    align-items: center;
+    padding: .5%;
+    font-size: .9rem;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #8970a8;
+}.container-details-titulo p{
+    margin: 0;
+    /* margin-left: 2px; */
+}
+
+.container-details-contenido{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    /* background-color: #ccff44; */
+}
+
+.container-details-contenido-main-foto{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    border: 1px solid #8970a8;
+    /* background-color: greenyellow; */
+}.container-details-contenido-main-foto img{
+    border: 3px solid #585858;
+    width: 60%;
+    /* height: 75%; */
+}
+
+.container-details-contenido-main-detalles{
+    display:flex;
+    width: 75%;
+    height: 100%;
+    /* background-color: #ffccff; */
+}
+
+.detalles-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* background-color: aquamarine; */
+    border: 1px solid #8970a8;
+}
+.detalles-container-row{
+    display: flex;
+    width: 100%;
+    height: 33%;
+    font-size: .75rem;
+    /* border: 1px solid #8970a8; */
+}
+.detalles-container-row-input-container{
+    display: flex;
+    flex-direction: column;
+    padding: .5%;
+    margin: .2%;
+    width: 50%;
+    height: 99%;
+    background-color: #FAFAFA;
+    /* border-radius: 5px; */
+}.detalles-container-row-input-container label{
+    color:#71b37c;
+    margin: 3px 0;
+}.detalles-container-row-input-container input{
+    color: #ec932f;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    background-color: #E6E6E6;
+    border-radius: 5px;
+    padding: .8%;
+}
+
+.volver-btn{
+    color: #8970a8;
+    padding: .3%;
+    font-size: .9rem;
+    background: none;
+    cursor: pointer;
+    border: none;
+
+}.volver-btn:hover{
+    /* border-bottom: 1px solid #8970a8; */
+    color: #8970a8ab;
+}
+
+.container-btn-qr{
+    width: 40%;
+    height: 100%;
+    
+}
+
+.btn-descargar-qr{
+    width: 100%;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    background-color: #8970a8;
+}.btn-descargar-qr:hover{
+    background-color: #9B8CAE;
+}
+
+#download{
+    display: none;
+}

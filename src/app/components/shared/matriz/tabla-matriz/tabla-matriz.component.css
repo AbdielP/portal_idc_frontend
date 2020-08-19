@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+    border: 1px solid #ffbf97;
+    margin: 1% 0;
+    background-color: #FAFAFA;
+    /* background-color: rgba(255,191,151, 0.3); */
+}
+
+
+th,tr,td{
+    border: 1px solid #ffbf97;
+    text-align: center;
+    padding: .5%;
+}
+
+.cuadros-editar-matriz{
+    color:#FAFAFA;
+    background-color: #FFBF00;
+    border:2px dashed #f26422;
+}

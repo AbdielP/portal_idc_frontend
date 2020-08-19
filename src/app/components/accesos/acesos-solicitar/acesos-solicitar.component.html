@@ -1,0 +1,209 @@
+<main>
+  <div class="main-container">
+    <!-- <div class="titulo-main-container">
+      <h3>Formulario de solicitud de acceso</h3>
+    </div> -->
+  
+    <div class="form-main-container">
+      <form [formGroup]="form_select">
+        <div class="container-select-entidad">
+          <h4 class="mb-3">Datos del cliente</h4>
+          <app-escoger-proyecto (emitirProyecto)="getEmitedProyecto($event)"></app-escoger-proyecto>
+        </div>
+        <div class="container-select-solicitante">
+            <label for="proyecto">Escoger solicitante de la matriz de comunicación - <b>Escoga primero una compañia.</b> </label>
+            <select  class="form-control" (change)="getSolicitante($event)" formControlName="escoger_solicitante">
+                <option value="" disabled>Escoger...</option>
+                <option *ngFor="let solicitante of solicitantes" value="{{solicitante.idusuario}}">{{solicitante.nombre}}</option>
+            </select>
+            <!-- <div *ngIf="form_select.controls['escoger_solicitante'].errors?.required" class="form-control-feedback alert-danger">
+              El campo solicitante es requerido.
+            </div> -->
+        </div>
+        <hr class="mb-4">
+      </form>
+        
+      <h4 class="mb-3">Datos del solicitante</h4>
+        <form [formGroup]="form" class="needs-validation" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="solicitante">Nombre y apellido</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control" formControlName="solicitante" placeholder="Nombre Apellido">
+            </div>
+            <div *ngIf="form.controls['solicitante'].errors?.required" class="form-control-feedback alert-danger">
+              El nombre del solicitante es requerido.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="numero_empleado">Cédula o pasaporte</label>
+            <input type="text" class="form-control" formControlName="numero_empleado" placeholder="Ejemplo: PE-00000">
+ 
+          </div>
+        </div>
+    
+        <div class="mb-3">
+          <label for="direccion">Dirección</label>
+          <input type="text" class="form-control" formControlName="direccion" placeholder="1234 Main St">
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="telefono">Teléfono</label>
+            <input type="text" class="form-control" formControlName="telefono" placeholder="">
+
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cargo">Cargo</label>
+            <input type="text" class="form-control" formControlName="cargo" placeholder="">
+  
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="departamento">Departamento</label>
+            <input type="text" class="form-control" formControlName="departamento" placeholder="">
+ 
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="compania">Compañía</label>
+            <!-- <input type="text" class="form-control" formControlName="compania_visitante" placeholder=""> -->
+            <select class="custom-select d-block w-100" formControlName="compania_visitante">
+              <option value="" disabled>Escoger...</option>
+              <option *ngFor="let compania of companias" value="{{compania.nombre_empresa}}">{{compania.nombre_empresa}} - {{compania.loc}} - {{compania.datacenter}}</option>
+            </select>
+            <div *ngIf="form.controls['compania_visitante'].errors?.required" class="form-control-feedback alert-danger">
+              La compañia del solicitante es requerida.
+            </div>
+          </div>
+        </div>
+    
+        <hr class="mb-4">
+    
+        <h4 class="mb-3">Datos del visitante</h4>
+    
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre_visitante">Nombre y apellido del visitante</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input (ngModelChange)="onChangeHints($event)" type="text" class="form-control" formControlName="nombre_visitante" placeholder="Nombre Apellido">
+            </div>
+            <div *ngIf="form.controls['nombre_visitante'].errors?.required" class="form-control-feedback alert-danger">
+              El nombre del visitante es requerido.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cedula_visitante">Cédula del visitante</label>
+            <input (ngModelChange)="onChangeHints($event)" type="text" class="form-control" formControlName="cedula_visitante"  placeholder="Ejemplo: PE-00000">
+            <div *ngIf="form.controls['cedula_visitante'].errors?.required" class="form-control-feedback alert-danger">
+              La cédula / pasaporte del visitante es requerido.
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="fecha_solicitud">Fecha solicitud</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="date" class="form-control" formControlName="fecha_solicitud" placeholder=""> 
+            </div>
+            <div *ngIf="form.controls['fecha_solicitud'].errors?.required" class="form-control-feedback alert-danger">
+              La fecha de solicitud es requerida.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="fecha_expiracion">Fecha de expiración en formato MM-DD-YYYY</label>
+            <!-- <input type="text" class="form-control" formControlName="fecha_expiracion" placeholder="Formato YYYY-MM-DD, Ej: 2019-12-31" value="" required> -->
+            <input type="date" class="form-control" formControlName="fecha_expiracion" placeholder="Formato MM-DD-YYYY, Ej: 01-12-20XX">
+            <div *ngIf="form.controls['fecha_expiracion'].errors?.required" class="form-control-feedback alert-danger">
+              La fecha de expiración es requerida.
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+  
+          <div class="col-md-4 mb-3">
+            <label for="motivo_solicitud">Motivo de la solicitud</label>
+            <select class="custom-select d-block w-100" formControlName="motivo_solicitud">
+              <option value="" disabled>Escoger...</option>
+              <option value="empleado nuevo">Empleado nuevo</option>
+              <option value="renovación de accesos">Renovación de accesos</option>
+              <option value="permiso temporal">Permiso temporal</option>
+            </select>
+
+          </div>
+        
+          <div class="col-md-4 mb-3">
+            <label for="datacenter">Datacenter</label>
+            <select class="custom-select d-block w-100" formControlName="vicepresidencia_ejecutiva">
+              <option value="" disabled>Escoger...</option>
+              <option *ngFor="let idc of datacenters">{{idc.datacenter}}</option>
+            </select>
+
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="tipo_visitante">Tipo visitante</label>
+            <select class="custom-select d-block w-100" formControlName="tipo_visitante">
+              <option value="" disabled>Escoger...</option>
+              <option *ngFor="let visitante of tipo_visitante" value="{{visitante}}">{{visitante}}</option>
+            </select>
+
+          </div> 
+        </div>
+  
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="empresa_visitante">Empresa visitante <small>(Compañía donde labora el personal a quien va dirigido el acceso.)</small></label>
+            <input type="text" class="form-control" formControlName="empleado_visitante" placeholder="Empleador del visitante">
+            <div *ngIf="form.controls['empleado_visitante'].errors?.required" class="form-control-feedback alert-danger">
+              La empresa donde trabaja el visitante es requerida.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="empresa_visitante">Link del formulario de acceso.</label>
+            <input type="text" class="form-control" formControlName="link_formulario" placeholder="http://Link de sharepoint..">
+          </div>
+        </div>
+    
+        <label for="acceso_detallado">Tarea que realizará el visitante y detalles del acceso</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Acceso detallado </span>
+          </div>
+          <textarea class="form-control" formControlName="notas" rows="5" value="" required></textarea>
+          
+        </div>
+    
+        <hr class="mb-4">
+  
+        <!-- <img *ngIf="mostrar_qr != ''" src="{{mostrar_qr}}" alt=""> -->
+    
+        <button [disabled]="!form.valid" class="btn btn-primary btn-lg btn-block" type="submit">Solicitar</button>
+      </form>
+    </div>
+    
+  </div>
+
+  <div class="main-container-hints">
+    <div *ngFor="let hint of hints" class="card text-white bg-info mb-1 fade-in" style="max-width: 15rem;" (click)="getHintID(hint.idseguridad)">
+      <div class="card-header">{{hint.nombre_visitante}}</div>
+      <div class="card-body">
+        <h6 class="card-title">{{hint.cedula_visitante}}</h6>
+        <p class="card-text"><small>{{hint.empleado_visitante}}</small></p>
+        <p class="card-text"><small>{{hint.viceprecidencia_ejecutiva}}</small></p>
+      </div>
+    </div>
+  </div>
+</main>
