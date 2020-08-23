@@ -4,12 +4,24 @@
   - Frontend desarrollado con Angular.
   - Backend Javascript hecho en NodeJS. Requiere ejecutar la aplicación @portal_idc_server
   - Estilos hechos en **CSS** y **Bootstrap 4**
-- El pertal IDC cuenta con las siguientes funcionalidades:
+- El portal IDC cuenta con las siguientes funcionalidades:
   - Creacion de cuentas de usuario para el portal de administración o portal de clientes.
     - Administrar cuentas de usuarios, contraseñas, bloquear cuentas, habilitar o deshabilitar cuentas.
   - Creación de matriz de comunicación de clientes:
     - Asigna cuentas de usuarios a la matriz de comunicación de uno (1) o más clientes.
     - Permite editar los roles del usuario sobre la matriz del cliente. **Solicitar acceso**,**Editar matriz de comunicación**, y otras.
+  - Solicitud de accesos a los centros de datos.
+    - Formulario para solicitud de accesos.
+____________
+### Inicio de sesión
+Acceso por login con usuario y contraseña. El acceso se puede restringir desde la base de datos.
+<img src="src/assets/img_readme/login.png" alt="" width="60%">
+### Página de usuarios
+Menú principal de usuarios.
+
+<img src="src/assets/img_readme/usuarios_crear.png" alt="" width="45%"> <img src="src/assets/img_readme/usuarios_listar.png" alt="" width="49%">
+<img src="src/assets/img_readme/usuarios.png" alt="" width="60%">
+
 _________________
 # Frontend
 
