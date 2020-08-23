@@ -1,3 +1,16 @@
+### Features
+
+- Aplicación para administración de cuentas, solicitudes e información de clientes/usuarios.
+  - Frontend desarrollado con Angular.
+  - Backend Javascript hecho en NodeJS. Requiere ejecutar la aplicación @portal_idc_server
+  - Estilos hechos en **CSS** y **Bootstrap 4**
+- El pertal IDC cuenta con las siguientes funcionalidades:
+  - Creacion de cuentas de usuario para el portal de administración o portal de clientes.
+    - Administrar cuentas de usuarios, contraseñas, bloquear cuentas, habilitar o deshabilitar cuentas.
+  - Creación de matriz de comunicación de clientes:
+    - Asigna cuentas de usuarios a la matriz de comunicación de uno (1) o más clientes.
+    - Permite editar los roles del usuario sobre la matriz del cliente. **Solicitar acceso**,**Editar matriz de comunicación**, y otras.
+_________________
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
