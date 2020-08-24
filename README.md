@@ -18,7 +18,28 @@ Acceso por login con usuario y contraseña. El acceso se puede restringir desde 
 <img src="src/assets/img_readme/login.png" alt="" width="60%">
 ### Creación y edición de usuarios
 Permite crear nuevas cuentas de usuario para ambos portales (clientes e IDC), así como editar datos de las cuentas.
-<img src="src/assets/img_readme/usuarios_crear.png" alt="" width="44%"> <img src="src/assets/img_readme/usuarios_listar.png" alt="" width="49%">
+<img src="src/assets/img_readme/usuarios.png" alt="" width="50%">
+<img src="src/assets/img_readme/usuarios_crear2.png" alt="" width="50%">
+### Matriz de comunicación
+Permite incluir que usuarios pertenecen a los clientes, y muestra sus permisos en la matriz de comunicación para realizar trámites desde el portal de clientes.
+
+<img src="src/assets/img_readme/matriz.png" alt="" width="40%"><img src="src/assets/img_readme/matriz_editar.png" alt="" width="40%">
+### Solicitudes de acceso
+Formulario para solicitud de acceso a los centro de datos vía web.
+
+<img src="src/assets/img_readme/accesos_solicitar.png" alt="" width="50%">
+
+El formulario encuentra coincidencias por nombre o cédula que hallan sido ingresados en consultas previas a la BD y la muestra como sugerencia en la parte derecha de la pantalla. los "**hints**" o coincidencias son clickeables, y llenan el formulario con la información predefinida traida de la base de datos.
+
+<img src="src/assets/img_readme/accesos_solicitar_hints.png" alt="" width="50%">
+
+Tambien permite consultar los accesos y su estado, si han sido aprobados o aún están pendientes de aprobación, así como detalles del mismo.
+
+<img src="src/assets/img_readme/accesos.png" alt="" width="30%"><img src="src/assets/img_readme/accesos_detalles.png" alt="" width="30%"><img src="src/assets/img_readme/acceso_detalle.png" alt="" width="30%">
+
+### Código QR para acceso
+La aplicación genera un código QR que los visitantes deben presentar para validar el acceso en el centro de datos.
+<img src="src/assets/img_readme/QR.png" alt="" width="40%">
 
 _________________
 # Frontend
