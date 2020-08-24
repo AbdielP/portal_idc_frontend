@@ -16,11 +16,9 @@ ____________
 ### Inicio de sesión
 Acceso por login con usuario y contraseña. El acceso se puede restringir desde la base de datos.
 <img src="src/assets/img_readme/login.png" alt="" width="60%">
-### Página de usuarios
-Menú principal de usuarios.
-
-<img src="src/assets/img_readme/usuarios_crear.png" alt="" width="45%"> <img src="src/assets/img_readme/usuarios_listar.png" alt="" width="49%">
-<img src="src/assets/img_readme/usuarios.png" alt="" width="60%">
+### Creación y edición de usuarios
+Permite crear nuevas cuentas de usuario para ambos portales (clientes e IDC), así como editar datos de las cuentas.
+<img src="src/assets/img_readme/usuarios_crear.png" alt="" width="44%"> <img src="src/assets/img_readme/usuarios_listar.png" alt="" width="49%">
 
 _________________
 # Frontend
