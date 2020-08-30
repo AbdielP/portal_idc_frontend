@@ -79,8 +79,9 @@ Datos adicionales.`,Validators.required),
       console.log(error)
     })
   }
-  //Obtiene el solicitante del select
+  //Obtiene el solicitante del select 'datos del cliente'
   getSolicitante(event){
+    this.limpiarDatosSolicitante();
     this.solicitante = this.solicitantes.find(sol => sol.idusuario == event.target.value);
     this.form.patchValue({
       solicitante:`${this.solicitante.nombre}`,
@@ -100,17 +101,17 @@ Datos adicionales.`,Validators.required),
   }
 
   onSubmit(){
-    console.log(this.form.getRawValue())
-    // if(this.form.valid === false){
-    //   return Swal.fire('formulario no valido. verifique que ha llenado todos los campos.');
-    // }else{
-    //   this.accesoService.solicitarAcceso(this.token,this.form.getRawValue())
-    //   .subscribe((resp:any)=>{
-    //     if(resp.ok){
-    //       Swal.fire(resp.message)
-    //     }
-    //   })
-    // }
+    // console.log(this.form.getRawValue())
+    if(this.form.valid === false){
+      return Swal.fire('formulario no valido. verifique que ha llenado todos los campos.');
+    }else{
+      this.accesoService.solicitarAcceso(this.token,this.form.getRawValue())
+      .subscribe((resp:any)=>{
+        if(resp.ok){
+          Swal.fire(resp.message)
+        }
+      })
+    }
   }
   //Busca en la BD los hints 
   onChangeHints(event){
@@ -150,6 +151,17 @@ Datos adicionales.`,Validators.required),
       this.datacenters = resp.results;
     },(error)=>{
       console.log(error)
+    })
+  }
+
+  limpiarDatosSolicitante(){
+    this.form.patchValue({
+      solicitante:``,
+      numero_empleado:``,
+      telefono:``,
+      cargo:``,
+      departamento:``,
+      compania_visitante: ``,
     })
   }
 
