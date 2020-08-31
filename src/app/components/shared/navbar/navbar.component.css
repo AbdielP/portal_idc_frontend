@@ -1,0 +1,114 @@
+.div-navbar-main{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: grey; */
+    /* background-color: #f5ac85; */
+    background-color: #F2F2F2;
+    box-shadow: 1px 0 3px #888888;
+    z-index: 1;
+}
+
+.div-navbar-logo{
+    /* background-color: #ffbf97; */
+    width: 100%;
+    padding: 3%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CONTENIDO DEL NAVBAR LATERAL */
+.div-navbar-contenido{
+    width: 100%;
+    /* height: 500px; */
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.div-navnar-contenido-busqueda{
+    width: 100%;
+    color: #707173;
+    font-size: .9rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+}.div-navnar-contenido-busqueda input[type=search]{
+    width: 80%;
+    padding: 3%;
+    background:none;
+    /* background-color: greenyellow; */
+    border: none;
+    border-bottom: 1px solid #ffbf97;
+    
+}
+
+.div-navbar-contenido-busqueda-logo{
+    width: 20%;
+    padding: 3%;
+
+    text-align: center;
+    border-bottom: 1px solid #ffbf97;
+}
+
+.div-navbar-contenido-contenidos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    color: #707173;
+    /* border-bottom: 1px solid #ffbf97; */
+    border-bottom: 1px solid #D8D8D8;
+    /* font-size: 1.3rem; */
+}
+
+.div-navbar-contenido-contenidos:hover{
+    background-color: #ffbf97;
+}
+
+.link{
+    /* display: inline-block; */
+    width: 100%;
+    padding: 5%;
+    text-decoration: none;
+    font-size: .9rem;
+    color: #707173;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+/* COLORES PARA LOS ICONOS DEL NAVBAR ------------------------------------------------------- ||||||| */
+.home-color{
+    color: #e14d57;
+}
+
+.formularios-color{
+    color: #71b37c;
+}
+
+.accesos-color{
+    color:#5290e9;
+}
+
+.datacenter-color{
+    color: #ec932f;
+}
+
+.clientes-color{
+    color: #965994;
+}
+
+.proveedores-color{
+    color: #cccccc
+}
+
+.matriz-color{
+    color: #FF8000;
+}

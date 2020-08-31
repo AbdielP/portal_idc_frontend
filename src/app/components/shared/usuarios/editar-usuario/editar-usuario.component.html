@@ -1,0 +1,75 @@
+<div class="main-container">
+    <div class="form-container">
+        <h4>Editar información del usuario {{usuario_info.username}} <i class="fas fa-user-plus"></i></h4>
+        <hr>
+        <form [formGroup]="form_info" (ngSubmit)="onSubmitPass()">
+          <!-- PRIMERA FILA -->
+          <div class="form-group">
+            <div class="form-group col-md-6">
+              <label for="password">Cambiar contraseña del usuario</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Escriba contraseña" required>
+            </div>
+
+            <div *ngIf="form_info.controls['password'].errors?.required" class="password-error-container">
+              El campo contraseña es requerido.
+            </div>
+
+            <div *ngIf="form_info.controls['password'].errors?.minlength" class="password-error-container">
+              La contraseña debe contener al menos 8 caracteres.
+            </div>
+            <button [disabled]="!form_info.valid" class="btn-cambiar-pass" type="submit"><i class="fas fa-share"></i> Cambiar contraseña</button>
+          </div>
+        </form>
+          <!-- SEGUNDA FILA -->
+        <form ngNativeValidate [formGroup]="form_activar" (ngSubmit)="onSubmitActivar()">
+            <div class="form-group">
+                <div class="container-inputs">
+                    <small *ngIf="usuario_info.activo == 1">Esta cuenta está ACTIVADA</small>
+                    <small *ngIf="usuario_info.activo == 0">Esta cuenta está DESACTIVADA</small>
+                    <div class="container-checkbox">
+                        <ng-container *ngIf="usuario_info.activo == 1">
+                            <!-- <label for="activo">Desactivar cuenta</label> -->
+                            <input type="hidden" formControlName="activo" value="0">
+                            <button class="btn-desactivar" type="submit"><i class="fas fa-times-circle"></i> DESACTIVAR cuenta</button>
+                        </ng-container>
+                        
+                        <ng-container *ngIf="usuario_info.activo == 0">
+                            <!-- <label for="activo">Desactivar cuenta</label> -->
+                            <input type="hidden" formControlName="activo" value="1">
+                            <button class="btn-activar" type="submit"><i class="fas fa-check-square"></i> ACTIVAR cuenta</button>
+                        </ng-container>
+
+                        <!-- <label *ngIf="usuario_info.activo == 1" for="activo">Desactivar cuenta</label>
+                        <label *ngIf="usuario_info.activo == 0" for="activo">Activar cuenta</label>
+                        <input type="checkbox" formControlName="bloqueada"> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form ngNativeValidate [formGroup]="form_bloquear" (ngSubmit)="onSubmitBloquear()">
+          <div class="form-group">
+            <div class="container-inputs">
+                <small *ngIf="usuario_info.bloqueada == 1">Esta cuenta está BLOQUEADA</small>
+                <small *ngIf="usuario_info.bloqueada == 0">Esta cuenta NO ESTÁ BLOQUEADA</small>
+                <div class="container-checkbox">
+                    <ng-container *ngIf="usuario_info.bloqueada == 1">
+                        <input type="hidden" formControlName="bloqueada" value="0">
+                        <button class="btn-desbloquear" type="submit"><i class="fas fa-user-check"></i> DESBLOQUEAR cuenta</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="usuario_info.bloqueada == 0">
+                        <input type="hidden" formControlName="bloqueada" value="1">
+                        <button class="btn-bloquear" type="submit"><i class="fas fa-user-lock"></i> BLOQUEAR cuenta</button>
+                    </ng-container>
+
+                    <!-- <label *ngIf="usuario_info.bloqueada == 1" for="bloqueada">Desbloquear cuenta</label>
+                    <label *ngIf="usuario_info.bloqueada == 0" for="bloqueada">Bloquear cuenta</label>
+                    <input type="checkbox" formControlName="bloqueada"> -->
+                </div>
+            </div>
+          </div>
+          <!-- <button type="submit">Enviar</button> -->
+        </form>
+    </div>
+</div>

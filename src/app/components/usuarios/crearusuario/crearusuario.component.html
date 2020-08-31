@@ -1,0 +1,366 @@
+<div class="main-container">
+  <div class="form-container">
+    <h4>Crear Nuevo Usuario <i class="fas fa-user-plus"></i></h4>
+    <hr>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-container">
+    <!-- PRIMERA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="username">Username</label>
+            <div *ngIf="registerForm.controls['username'].errors?.required" class="form-control-feedback">
+              El campo Usuario es requerido.
+            </div>
+          </div>
+          <input type="text" class="form-control" formControlName="username" id="username" placeholder="Ejemplo: nombre.apellido">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Contraseña: <small>"welcome"</small></label>
+           <input type="password" class="form-control" formControlName="password" id="password" placeholder="Escriba contraseña">
+        </div>
+      </div>
+
+      <!-- SEGUNDA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="nombre">Nombre</label>
+            <div *ngIf="registerForm.controls['nombre'].errors?.required" class="form-control-feedback">
+              El campo Nombre es requerido.
+            </div>
+          </div>
+          <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="apellido">Apellido</label>
+            <div *ngIf="registerForm.controls['apellido'].errors?.required" class="form-control-feedback">
+              El campo Apellido es requerido.
+            </div>
+          </div>
+          <input type="text" class="form-control" formControlName="apellido" id="apellido" placeholder="">
+        </div>
+      </div>
+      <!-- TERCERA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="cedula">Cédula</label>
+            <!-- <div *ngIf="registerForm.controls['cedula'].errors?.required" class="form-control-feedback">
+              El campo Cédula es requerido.
+            </div> -->
+          </div>
+          <input type="text" class="form-control" formControlName="cedula" id="cedula" placeholder="Ejemplo: PE-000-0000">
+        </div>
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="correo">Correo</label>
+            <div *ngIf="registerForm.controls['correo'].errors?.required" class="form-control-feedback">
+              El campo Correo es requerido.
+            </div>
+          </div>
+          <input type="text" class="form-control" formControlName="correo" id="correo" placeholder="ejemplo@correo.com">
+        </div>
+      </div>
+      <!-- CUARTA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="telefono">Teléfono</label>
+          <input type="text" class="form-control" formControlName="telefono" placeholder="Ejemplo: 830-0000">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="celular">Celular</label>
+          <input type="text" class="form-control" formControlName="celular" placeholder="Ejemplo: 6000-0000">
+        </div>
+      </div>
+      <!-- QUINTA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="error-container">
+            <label for="rollId">Tipo de cuenta</label>
+            <div *ngIf="registerForm.controls['rollId'].errors?.required" class="form-control-feedback">
+              El campo Tipo de cuenta es requerido.
+            </div>
+          </div>
+          <select id="rollId" formControlName="rollId" class="form-control" (change)="onChange($event)" required>
+            <option value="" disabled>Escoger...</option>
+            <!-- <option value="1">Especialista</option> -->
+            <!-- <option value="2">Cliente</option> -->
+            <option *ngFor="let rol of roles" value="{{rol.idroll}}">{{rol.roll | titlecase}}</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="direccion">Dirección</label>
+          <input type="text" class="form-control" formControlName="direccion" placeholder="Ejemplo: 1234 Main St.">
+        </div>
+      </div>
+      <!-- SEXTA FILA -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="cargo">Cargo o puesto de la persona</label>
+          <input type="text" class="form-control" formControlName="cargo" placeholder="Ejemplo: Administrador de redes">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="departamento">Departamento</label>
+          <input type="text" class="form-control" formControlName="departamento" placeholder="Ejemplo: Tecnología">
+        </div>
+      </div>
+      <!-- SEPTIMA FILA  -->  
+      <div class="form-row">
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" formControlName="check_activo" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="check_activo">
+              Cuenta activa
+             </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn btn-success" (click)="agregarTelefono()">+ Añadir Matriz Adicional</button>
+      </div>
+
+      <div class="contenedor-principal-matriz">
+        <div class="contenedor-matriz">
+          <div class="form-row">
+            <div class="col-md-12">
+              <h5 for="">Permisos de usuario sobre la matríz de comunicación</h5>
+              <!-- <small class="alert-warning"><i class="fas fa-exclamation-triangle"></i> Seleccione los permisos/privilegios que este nuevo usuario tendrá sobre la matriz de comunicación de la empresa a la que pertenece.</small> -->
+            </div>
+          </div>
+
+          <!-- tabla matriz -->
+            <div class="form-row">
+              <div class="form-group col-md-9">
+                <div class="error-container">
+                  <label for="proyecto">Nombre empresa <small>(seleccione primero el tipo de cuenta)</small></label>
+                  <div *ngIf="registerForm.controls['proyecto'].errors?.required" class="form-control-feedback">
+                    Seleccione el nombre de la empresa para añadir la matriz de comunicación.
+                  </div>
+                </div>
+                <select formControlName="proyecto" class="form-control">
+                  <option value="" disabled>Escoger...</option>
+                  <ng-container *ngIf="clientes != ''">
+                    <option *ngFor="let cliente of clientes" value="{{cliente.idproyecto}}">{{cliente.nombre_empresa}} - LOC{{cliente.loc}} - {{cliente.datacenter}}</option>
+                  </ng-container>
+                  <ng-container *ngIf="proveedores != ''">
+                    <option *ngFor="let proveedor of proveedores" value="{{proveedor.idproveedor}}">{{proveedor.nombre_proveedor}} - Datacenter - {{proveedor.datacenter}}</option>
+                  </ng-container>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <div class="error-container">
+                  <div *ngIf="registerForm.controls['version'].errors?.required" class="form-control-feedback">
+                    La fecha del documento de matriz de comunicación es requerida.
+                  </div>
+                </div>
+                <label for="version">Fecha</label>
+                <input type="date" class="form-control" formControlName="version" placeholder="dd/mm/yyyy">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <div class="error-container">
+                  <label for="link">Link del formulario de matriz de comunicación </label>
+                  <div *ngIf="registerForm.controls['link'].errors?.required" class="form-control-feedback">
+                    El link del formulario de matriz de comunicación es requerido.
+                  </div>
+                </div>
+                <input type="text" class="form-control" formControlName="link" placeholder="Si no lleva formulario, escribir: N/A">
+              </div>
+            </div>
+            
+  
+            <div class="form-row">
+              <table>
+                  <thead>
+                      <tr>
+                          <th colspan="3">Solicitud de permiso</th>
+                          <th rowspan="2">Manos remotas *</th>
+                          <th colspan="3">Notificación de alertas</th>
+                      </tr>
+                      <tr>
+                          <th>Solicitar</th>
+                          <th>Actualizar</th>
+                          <th>Eliminar</th>
+              
+                          <th>Baja</th>
+                          <th>Media</th>
+                          <th>Alta</th>
+                      </tr>
+      
+                  </thead>
+      
+                  <tbody>
+                      <tr>
+                          <td>
+                              <input type="checkbox" formControlName="solicitar_acceso">
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="actualizar_acceso" >
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="eliminar_acceso" >
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="manos_remotas" >
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="alertas_baja" >
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="alertas_media" >
+                          </td>
+                          <td>
+                              <input type="checkbox" formControlName="alertas_alta" >
+                          </td>
+                      </tr>
+                      
+                  </tbody>
+              </table>
+      
+              <div class="form-group">
+                  <div class="form-check">
+                  <input class="form-check-input" formControlName="editar_matriz" type="checkbox">
+                  <label class="form-check-label alert-danger" for="editar_matriz">
+                      ¿Permitir a este usuario editar la matríz de comunicación?
+                  </label>
+                  </div>
+              </div>
+            </div>
+      
+        </div> 
+      </div>
+
+      <!-- FORMARRAY [] -->
+        <div formArrayName='proyectos' *ngFor="let telefono of proyectos.controls; let i = index">
+          <div [formGroupName]=i class="contenedor-matriz">
+            <div class="form-row">
+              <div class="col-md-12">
+                <h5 for="">Permisos de usuario sobre la matríz de comunicación</h5>
+                <!-- <small class="alert-warning"><i class="fas fa-exclamation-triangle"></i> Seleccione los permisos/privilegios que este nuevo usuario tendrá sobre la matriz de comunicación de la empresa a la que pertenece.</small> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-9">
+                <div class="error-container">
+                  <label for="proyecto">Nombre empresa <small>(seleccione primero el tipo de cuenta)</small></label>
+                  <!-- <div *ngIf="registerForm.controls['proyecto'].errors?.required" class="form-control-feedback"> -->
+                  <div *ngIf="proyectos.controls[i].get('proyecto').errors?.required" class="form-control-feedback">
+                    Seleccione el nombre de la empresa para añadir la matriz de comunicación.
+                  </div>
+                </div>
+                <!-- <label [attr.for]="'proyecto' +i">Nombre empresa <small>(seleccione primero el tipo de cuenta)</small></label> -->
+                <select [attr.id]="'proyecto'  +i" formControlName="proyecto" class="form-control">
+                  <option value="" disabled>Escoger...</option>
+                  <ng-container *ngIf="clientes != ''">
+                    <option *ngFor="let cliente of clientes" value="{{cliente.idproyecto}}">{{cliente.nombre_empresa}} - LOC{{cliente.loc}} - {{cliente.datacenter}}</option>
+                  </ng-container>
+                  <ng-container *ngIf="proveedores != ''">
+                    <option *ngFor="let proveedor of proveedores" value="{{proveedor.idproveedor}}">{{proveedor.nombre_proveedor}} - Datacenter - {{proveedor.datacenter}}</option>
+                  </ng-container>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <div class="error-container">
+                  
+                  <div *ngIf="proyectos.controls[i].get('version').errors?.required" class="form-control-feedback">
+                    La versión de la matriz de comunicación es requerida.
+                  </div>
+                </div>
+                <label for="version">Fecha</label>
+                <input type="date" class="form-control" formControlName="version" placeholder="Año: 20XX">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <div class="error-container">
+                  <label for="link">Link del formulario de matriz de comunicación </label>
+                  <div *ngIf="proyectos.controls[i].get('link').errors?.required" class="form-control-feedback">
+                    El link del formulario de matriz de comunicación es requerido.
+                  </div>
+                </div>
+                <input type="text" class="form-control" formControlName="link" placeholder="Si no lleva formulario, escribir: N/A">
+              </div>
+            </div>
+    
+            <div class="form-group row">
+              <div class="col-md-12">
+                <button type="button" class="btn btn-danger btn-block" (click)="removerTelefono(i)">- Remover Matriz</button>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <table>
+                  <thead>
+                      <tr>
+                          <th colspan="3">Solicitud de permiso</th>
+                          <th rowspan="2">Manos remotas *</th>
+                          <th colspan="3">Notificación de alertas</th>
+                      </tr>
+                      <tr>
+                          <th>Solicitar</th>
+                          <th>Actualizar</th>
+                          <th>Eliminar</th>
+              
+                          <th>Baja</th>
+                          <th>Media</th>
+                          <th>Alta</th>
+                      </tr>
+      
+                  </thead>
+      
+                  <tbody>
+                      <tr>
+                          <td>
+                              <input type="checkbox" [attr.id]="'solicitar_acceso'  +i" formControlName="solicitar_acceso">
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'actualizar_acceso'  +i" formControlName="actualizar_acceso" >
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'eliminar_acceso'  +i" formControlName="eliminar_acceso" >
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'manos_remotas'  +i" formControlName="manos_remotas" >
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'alertas_baja'  +i" formControlName="alertas_baja" >
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'alertas_media'  +i" formControlName="alertas_media" >
+                          </td>
+                          <td>
+                              <input type="checkbox" [attr.id]="'alertas_alta'  +i" formControlName="alertas_alta" >
+                          </td>
+                      </tr>
+                      
+                  </tbody>
+              </table>
+      
+              <div class="form-group">
+                  <div class="form-check">
+                  <input class="form-check-input" [attr.id]="'editar_matriz'  +i" formControlName="editar_matriz" type="checkbox">
+                  <label class="form-check-label alert-danger" for="editar_matriz">
+                      ¿Permitir a este usuario editar la matríz de comunicación?
+                  </label>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    
+      <div class="form-group">
+        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary">Crear Usuario</button>
+      </div>
+    </form>
+  </div>
+    
+</div>

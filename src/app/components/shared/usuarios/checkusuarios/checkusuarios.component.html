@@ -1,0 +1,43 @@
+<div class="main-container">
+    <div class="title-container">
+        <p>{{titulo}}</p>
+    </div>
+
+    <div class="pendientes-main-container">
+        <div class="pendientes-container">
+            <div *ngIf="usuarios < 1" class="container-nada-pendiente">
+                <i class="fas fa-dog"></i><p>- {{no_results_txt}} -</p><i class="fas fa-paw"></i>
+            </div>
+            
+            <div *ngFor="let usuario of usuarios" class="contenedor-pendientes">
+                <div class="contenedor-pendientes-nombre">
+                    <i class="logo-nombre fas fa-user-circle"></i>
+                    <h6><b>{{usuario.nombre}} {{usuario.apellido}}</b></h6>
+                </div>
+                <div class="contenedor-pendientes-cedula">
+                    <h6>{{usuario.cedula}}</h6>
+                    
+                    <h6>{{usuario.correo}}</h6>
+                </div>
+                <div class="contenedor-pendientes-empresa">
+                    <h6>{{usuario.username}}</h6>
+                    
+                </div>
+                <div class="contenedor-pendientes-fecha">
+                    <h6>Creado: <b>{{usuario.createdAt | date: 'dd/MM/yyyy'}}</b></h6>
+                </div>
+
+                
+                <div class="contenedor-pendientes-habilitar">
+
+                    <!-- <h6><small>{{activo_txt}}</small></h6> -->
+                    <!-- <input type="checkbox" formControlName="activo" (click)="onClickCheckbox($event)"> -->
+                    <a [routerLink]="['/edu',usuario.idusuario]"><i class="fas fa-user-edit"></i> Editar</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button type="button" class="volver-btn" (click)="volver()"><i class="fas fa-arrow-left"></i> Regresar</button>
+</div>

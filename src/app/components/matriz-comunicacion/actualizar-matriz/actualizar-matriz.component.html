@@ -1,0 +1,70 @@
+<div class="main-container">
+    <h2>Editar Matriz component</h2>
+    <div class="container-lista">
+
+        <table class="tabla-detalles">
+            <tr class="tabla-detalles-tr">
+              <th class="tabla-detalles-th">Nombre</th>
+              <th class="tabla-detalles-th">Cargo</th>
+              <th class="tabla-detalles-th">Teléfono</th>
+              <th class="tabla-detalles-th">Celular</th>
+              <th class="tabla-detalles-th">Email</th>
+              <th class="tabla-detalles-th">Solicitar acceso</th>
+              <th class="tabla-detalles-th">Actualizar acceso</th>
+              <th class="tabla-detalles-th">Eliminar acceso</th>
+              <th class="tabla-detalles-th">Manos remotas</th>
+              <th class="tabla-detalles-th">Alerta baja</th>
+              <th class="tabla-detalles-th">Alerta media</th>
+              <th class="tabla-detalles-th">Alerta alta</th>
+              <th class="tabla-detalles-th">Editar matriz</th>
+            </tr>
+            <tr *ngFor="let persona of personal" class="tabla-detalles-tr">
+              <td class="tabla-detalles-td">{{persona.nombre}}</td>
+              <td class="tabla-detalles-td">{{persona.cargo}}</td>
+              <td class="tabla-detalles-td">{{persona.telefono}}</td>
+              <td class="tabla-detalles-td">{{persona.celular}}</td>
+              <td class="tabla-detalles-td">{{persona.correo}}</td>
+              <td class="tabla-detalles-td"> 
+                <input *ngIf="persona.solicitar_acceso" type="checkbox" value="{{persona.solicitar_acceso}}" checked>
+                <input *ngIf="!persona.solicitar_acceso" type="checkbox" value="{{persona.solicitar_acceso}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <input *ngIf="persona.actualizar_acceso" type="checkbox" value="{{persona.actualizar_acceso}}" checked>
+                <input *ngIf="!persona.actualizar_acceso" type="checkbox" value="{{persona.actualizar_acceso}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.eliminar_acceso}}"> -->
+                <input *ngIf="persona.eliminar_acceso" type="checkbox" value="{{persona.eliminar_acceso}}" checked>
+                <input *ngIf="!persona.eliminar_acceso" type="checkbox" value="{{persona.eliminar_acceso}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.manos_remotas}}"> -->
+                <input *ngIf="persona.manos_remotas" type="checkbox" value="{{persona.manos_remotas}}" checked>
+                <input *ngIf="!persona.manos_remotas" type="checkbox" value="{{persona.manos_remotas}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.alertas_baja}}"> -->
+                <input *ngIf="persona.alertas_baja" type="checkbox" value="{{persona.alertas_baja}}" checked>
+                <input *ngIf="!persona.alertas_baja" type="checkbox" value="{{persona.alertas_baja}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.alertas_media}}"> -->
+                <input *ngIf="persona.alertas_media" type="checkbox" value="{{persona.alertas_media}}" checked>
+                <input *ngIf="!persona.alertas_media" type="checkbox" value="{{persona.alertas_media}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.alertas_alta}}"> -->
+                <input *ngIf="persona.alertas_alta" type="checkbox" value="{{persona.alertas_alta}}" checked>
+                <input *ngIf="!persona.alertas_alta" type="checkbox" value="{{persona.alertas_alta}}">
+              </td>
+              <td class="tabla-detalles-td"> 
+                <!-- <input type="checkbox" value="{{persona.editar_matriz}}"> -->
+                <input *ngIf="persona.editar_matriz" type="checkbox" value="{{persona.editar_matriz}}" checked>
+                <input *ngIf="!persona.editar_matriz" type="checkbox" value="{{persona.editar_matriz}}">
+              </td>
+
+            </tr>
+            
+          </table>
+    </div>
+</div>

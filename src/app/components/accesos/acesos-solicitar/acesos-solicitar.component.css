@@ -1,0 +1,91 @@
+input,select,
+input[type=text],
+input[type=checkbox]{
+    /* color: #AF7EFF; */
+    color: #985AFF;
+}
+
+main{
+    display: flex;
+    width: 85%;
+    height: 100%;
+    z-index: -1;
+    /* align-items: center; */
+    position: absolute;
+
+    /* background: green; */
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: 85%;
+    padding: 1% 0 1% 1%;
+    /* background-color: red; */
+}
+
+.titulo-main-container{
+    display: flex;
+    width: 100%;
+    /* background-color: green; */
+}
+
+.form-main-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* margin-right: 500px; */
+    margin-top: .5%;
+    padding: 1%;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: #FAFAFA;
+}
+
+.container-select-entidad{
+    /* background-color: #8970a8; */
+    /* border-bottom: 2px solid #8970a8 ; */
+    margin-bottom: 1%;
+}
+
+.main-container-hints{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 15%;
+    z-index: 1;
+    box-shadow: 1px 1px 3px #888888;
+    background-color: #FAFAFA;
+    margin-top: 1.4%;
+    margin-left: .2%;
+    height: 0;
+    /* display: none; */
+    /* width: 15%;
+    height: 100%;
+    
+    /* right: -1px; */
+}.main-container-hints .card{
+    margin: 0;
+    cursor: pointer;
+}.card .card-header{
+    color:red;
+}
+
+.fade-in {
+    animation: fadeIn ease .3s;
+    -webkit-animation: fadeIn ease .3s;
+    -moz-animation: fadeIn ease .3s;
+    -o-animation: fadeIn ease .3s;
+    -ms-animation: fadeIn ease .3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: .9;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
+ }

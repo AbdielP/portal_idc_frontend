@@ -1,0 +1,92 @@
+<div class="main-container">
+    <div class="main-container-header">
+        <h4>Detalles del acceso de <b>{{detalles_acceso.nombre_visitante}}</b> para <b>{{detalles_acceso.compania_visitante}}</b></h4>
+        <p>Presente el código QR encontrado en esta página en la recepción de los IDC LLA para validar su acceso.</p>
+    </div>
+
+    <div class="body-container">
+        <div class="body-container-details">
+            <div class="container-details-titulo">
+                <p>Detalles del acceso</p>
+            </div>
+            <div class="container-details-contenido">
+                <div class="container-details-contenido-main-foto">
+                   <img src="../../../../../../assets/img/logo.png" alt="foto cliente">
+                </div>
+
+                <div class="container-details-contenido-main-detalles">
+                    <div class="detalles-container">
+
+                        <div class="detalles-container-row">
+                            <div class="detalles-container-row-input-container">
+                                <label for="nombre_visitante">Nombre del visitante</label>
+                                <input type="text" id="nombre_visitante" value="{{detalles_acceso.nombre_visitante}}" disabled>
+                            </div>
+    
+                            <div class="detalles-container-row-input-container">
+                                <label for="cedula_visitante">Cédula del visitante</label>
+                                <input type="text" id="cedula_visitante" value="{{detalles_acceso.cedula_visitante}}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="detalles-container-row">
+                            <div class="detalles-container-row-input-container">
+                                <label for="compania_visitante">Acceso para</label>
+                                <input type="text" id="compania_visitante" value="{{detalles_acceso.compania_visitante}}" disabled>
+                            </div>
+    
+                            <div class="detalles-container-row-input-container">
+                                <label for="empleado_visitante">Empresa del visitante</label>
+                                <input type="text" id="empleado_visitante" value="{{detalles_acceso.empleado_visitante}}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="detalles-container-row">
+                            <div class="detalles-container-row-input-container">
+                                <label for="fecha_solicitud">Fecha de solicitud - (YYYY-MM-DD)</label>
+                                <input type="text" id="fecha_solicitud" value="{{detalles_acceso.fecha_solicitud | date: 'yyyy-MM-dd'}}" disabled>
+                            </div>
+    
+                            <div class="detalles-container-row-input-container">
+                                <label for="fecha_expiracion">Fecha de expiración - (YYYY-MM-DD)</label>
+                                <input type="text" id="fecha_expiracion" value="{{detalles_acceso.fecha_expiracion | date: 'yyyy-MM-dd'}}" disabled>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                <!-- <ul>
+                    <li><b> Nombre del visitante:</b> {{detalles_acceso.nombre_visitante}}</li>
+                    <li><b> Cédula o pasaporte del visitante:</b> {{detalles_acceso.cedula_visitante}}</li>
+                    <li><b> Acceso para:</b> {{detalles_acceso.compania_visitante}}</li>
+                    <li><b> Empresa visitante:</b> {{detalles_acceso.empleado_visitante}}</li>
+                    <li><b> Fecha solicitud:</b> {{detalles_acceso.fecha_solicitud}}</li>
+                    <li><b> Fecha expiración:</b> {{detalles_acceso.fecha_expiracion}}</li>
+                    <li><b> Notas:</b> {{detalles_acceso.notas}}</li>
+                
+                </ul> -->
+            </div>
+        </div>
+
+        <div class="body-container-qr" #screen>
+            <div class="container-qr-info">
+                <p>Bienvenido</p>
+                <p>{{detalles_acceso.nombre_visitante}}</p>
+                <p>{{detalles_acceso.cedula_visitante}}</p>
+            </div>
+            <div class="container-qr-img">
+                <img src="{{qrcode}}" alt="QR Code">
+            </div> 
+        </div>
+        <div class="container-btn-qr" (click)="downLoadImage()">
+            <button class="btn-descargar-qr">Descargar QR</button>
+        </div>
+        <!-- ESTO ES PARA LA DESCARGA DEL QR -->
+        <div id="download">
+            <img #canvas>
+            <a #downloadLink></a>
+        </div>
+    </div>
+    <button type="button" class="volver-btn" (click)="volver()"><i class="fas fa-arrow-left"></i> Volver a accesos</button>
+</div>

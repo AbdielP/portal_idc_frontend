@@ -1,0 +1,23 @@
+<div class="main-container">
+    
+    <div class="card-navbar">
+        <h4><i class="fas fa-door-open"></i><b> Detalles de accesos y QR Codes</b></h4>
+        <hr>
+    </div>
+
+
+    <div class="list-container">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/acapr']"><i class="fas fa-check-double"></i> Accesos aprobados</a>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/acnapr']"><i class="fas fa-stamp"></i> Accesos pendientes de aprobación</a>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/sac']"><i class="fas fa-id-card"></i> Solicitar accesos</a>
+      </li>
+    </ul>
+  </div>
+
+</div>

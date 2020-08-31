@@ -1,0 +1,7 @@
+<!-- <div class="form-group col-md-12"> -->
+    <label for="proyecto">Escoger compañia</label>
+    <select id="proyecto" class="form-control" (change)="getProyecto($event)">
+        <option value="" disabled>Escoger...</option>
+        <option *ngFor="let proyecto of proyectos" value="{{proyecto.idproyecto}}">{{proyecto.nombre_empresa}} - LOC{{proyecto.loc}} - {{proyecto.datacenter}}</option>
+    </select>
+<!-- </div> -->
